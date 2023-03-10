@@ -1,4 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f0fe05f4-87c5-430b-8ef8-f5e25effeb77" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Icons/svg/preloaderLogo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/misc/Preloader.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/svgr.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Icons/Apple.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Icons/EmailIcon.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Icons/EmailIconInactive.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Icons/Facebook.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Icons/Google.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Icons/IconManager.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Icons/IconManager.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Icons/Logo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Icons/Logo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Icons/PasswordIcon.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Icons/PasswordIcon.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Icons/PasswordIconInactive.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Icons/PasswordIconInactive.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Icons/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Icons/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/InputField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InputField.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/auth/SignIn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/SignIn.tsx" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="2MaYRIsZgdBwUTesko7bpQo6t9a" />
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="C:\dev2\anthera-web-app\node_modules\prettier" />
+    <property name="ts.external.directory.path" value="C:\dev2\anthera-web-app\node_modules\typescript\lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\dev2\anthera-web-app\src\Icons\svg" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f0fe05f4-87c5-430b-8ef8-f5e25effeb77" name="Default Changelist" comment="" />
+      <created>1678435714703</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1678435714703</updated>
+      <workItem from="1678435716259" duration="3107000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
 </project>

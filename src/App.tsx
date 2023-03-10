@@ -1,6 +1,7 @@
 import React from 'react'
 import { SignIn } from './pages/auth/SignIn'
 import styled from "styled-components";
+import {Preloader} from "./pages/misc/Preloader";
 
 const AppContainer = styled.div`
     display: flex;
@@ -16,7 +17,7 @@ function App() {
                 <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0"/>
                 <title>anthera</title>
             </head>
-            <SignIn />
+            <Preloader />
         </AppContainer>
     )
 }

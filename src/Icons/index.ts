@@ -6,3 +6,4 @@ export { default as Google } from './Google';
 export { default as Logo } from './Logo';
 export { default as PasswordIcon } from './PasswordIcon';
 export { default as PasswordIconInactive } from './PasswordIconInactive';
+export { default as PreloaderLogo } from './PreloaderLogo';

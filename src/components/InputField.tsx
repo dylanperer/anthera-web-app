@@ -1,9 +1,7 @@
 import * as React from 'react';
+import {HTMLInputTypeAttribute, useState} from 'react';
 import styled from 'styled-components';
-import { useEffect, useState } from 'react';
-import SvgEmailIcon from '../Icons/EmailIcon';
-import { RenderIcon, Icon } from '../Icons/IconManager';
-import { HTMLInputTypeAttribute } from 'react';
+import {Icon, IconVariant, RenderIcon} from '../Icons/IconManager';
 
 const LeftSideIconContainer = styled.div`
     display: flex;
@@ -93,7 +91,7 @@ export const InputField = ({
     return (
         <Container isFocused={isFocused}>
             <LeftSideIconContainer>
-                <RenderIcon icon={leftIcon} isActive={isFocused} />
+                <RenderIcon icon={leftIcon} variant={IconVariant.VariantOne} />
             </LeftSideIconContainer>
             <Input
                 isFocused={isFocused}

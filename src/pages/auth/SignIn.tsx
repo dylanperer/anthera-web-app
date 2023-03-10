@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { InputField } from '../../components/InputField';
+import {InputField} from '../../components/InputField';
 import styled from 'styled-components';
-import { Button } from '../../components/Button';
-import { RadioButton } from '../../components/radio-button/RadioButton';
-import { RenderIcon } from '../../Icons/IconManager';
+import {Button} from '../../components/Button';
+import {RadioButton} from '../../components/radio-button/RadioButton';
+import {IconVariant, RenderIcon} from '../../Icons/IconManager';
 
 const StyledLogoContainer = styled.div`
     margin-bottom: 36px;
@@ -65,7 +65,7 @@ export const SignIn = () => {
     return (
         <Container>
             <StyledLogoContainer>
-                <RenderIcon icon={'logo'} />
+                <RenderIcon variant={IconVariant.VariantOne} icon={'logo'} />
             </StyledLogoContainer>
             <StyledHeaderContainer>
                 <StyledHeader>Sign in</StyledHeader>
