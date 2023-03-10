@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {InputField} from '../../components/InputField';
-import styled from 'styled-components';
-import {Button} from '../../components/Button';
-import {RadioButton} from '../../components/radio-button/RadioButton';
-import {IconVariant, RenderIcon} from '../../Icons/IconManager';
+import { InputField } from '../../components/InputField';
+import styled, { keyframes } from 'styled-components';
+import { Button } from '../../components/Button';
+import { RadioButton } from '../../components/radio-button/RadioButton';
+import { IconVariant, RenderIcon } from '../../Icons/IconManager';
 
 const StyledLogoContainer = styled.div`
     margin-bottom: 36px;
@@ -51,6 +51,18 @@ const StyledThirdPartyLoginContainer = styled.div`
     margin-top: 30px;
 `;
 
+export const fadInAnim = keyframes`
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: .5;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
 const Container = styled.div<{}>`
     display: flex;
     flex-direction: column;
@@ -59,13 +71,14 @@ const Container = styled.div<{}>`
     gap: 24px;
     margin-top: 40px;
     width: 324px;
+    animation: ${fadInAnim} .6s ease-in;
 `;
 
 export const SignIn = () => {
     return (
         <Container>
             <StyledLogoContainer>
-                <RenderIcon variant={IconVariant.VariantOne} icon={'logo'} />
+                <RenderIcon variant={IconVariant.V1} icon={'logo'} />
             </StyledLogoContainer>
             <StyledHeaderContainer>
                 <StyledHeader>Sign in</StyledHeader>
@@ -87,9 +100,9 @@ export const SignIn = () => {
             <StyledRadioButton isActive={true} label={'Remember me'} />
             <Button label={'Sign in'} />
             <StyledThirdPartyLoginContainer>
-                <RenderIcon icon={'google'}/>
-                <RenderIcon icon={'facebook'}/>
-                <RenderIcon icon={'apple'}/>
+                <RenderIcon icon={'google'} />
+                <RenderIcon icon={'facebook'} />
+                <RenderIcon icon={'apple'} />
             </StyledThirdPartyLoginContainer>
         </Container>
     );

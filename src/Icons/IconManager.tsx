@@ -22,34 +22,35 @@ export type Icon =
     | 'none';
 
 export enum IconVariant {
-    VariantDefault = 0,
-    VariantOne = 0,
-    VariantTwo = 0,
-    VariantThree = 0,
-    VariantFour = 0,
+    Default = 0,
+    V1 = 1,
+    V2 = 2,
+    V3 = 3,
+    V4 = 4,
 }
 export interface IRenderIcon {
     icon: Icon;
     variant?: IconVariant;
 }
 
-const getVariant = (variant = IconVariant.VariantDefault) => {
+const getVariant = (variant = IconVariant.Default) => {
     switch (variant) {
-        case IconVariant.VariantDefault:
+        case IconVariant.Default:
             return <EmailIconInactive />;
-        case IconVariant.VariantOne:
+        case IconVariant.V1:
             return <EmailIcon />;
     }
 };
 export const RenderIcon = ({
     icon,
-    variant = IconVariant.VariantDefault,
+    variant = IconVariant.Default,
 }: IRenderIcon) => {
     switch (icon) {
         case 'logo':
             switch (variant) {
-                case IconVariant.VariantOne:
-                    return <PasswordIcon />;
+                case IconVariant.V1:
+                    return <Logo />;
+                case IconVariant.Default:
                 default:
                     return <PreloaderLogo />;
             }
@@ -61,21 +62,23 @@ export const RenderIcon = ({
             return <Google />;
         case 'email':
             switch (variant) {
-                case IconVariant.VariantOne:
+                case IconVariant.V1:
                     return <EmailIcon />;
+                case IconVariant.Default:
                 default:
                     return <EmailIconInactive />;
             }
         case 'password':
             switch (variant) {
-                case IconVariant.VariantOne:
+                case IconVariant.V1:
                     return <PasswordIcon />;
+                case IconVariant.Default:
                 default:
                     return <PasswordIconInactive />;
             }
         case 'none':
-            return <></>;
+            return <span>Icon None</span>;
         default:
-            return <></>;
+            return <span>Icon default</span>;
     }
 };

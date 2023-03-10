@@ -91,7 +91,7 @@ export const InputField = ({
     return (
         <Container isFocused={isFocused}>
             <LeftSideIconContainer>
-                <RenderIcon icon={leftIcon} variant={IconVariant.VariantOne} />
+                <RenderIcon icon={leftIcon} variant={IconVariant.V1} />
             </LeftSideIconContainer>
             <Input
                 isFocused={isFocused}

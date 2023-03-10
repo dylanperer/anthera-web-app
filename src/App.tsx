@@ -7,17 +7,21 @@ const AppContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
+    height:100%;
 `;
 
 function App() {
+    const [isPreloadReady, setIsPreloadReady] = React.useState<boolean>(false);
+    const onPreloadReady = async ()=>{
+        setIsPreloadReady(true)
+    };
     return (
         <AppContainer className="App">
             <head>
-                <link href="https://fonts.cdnfonts.com/css/inter" rel="stylesheet"/>
-                <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0"/>
+                <link href="https://fonts.cdnfonts.com/css/inter" rel="stylesheet" onLoad={()=>setTimeout(onPreloadReady, 6000)}/>
                 <title>anthera</title>
             </head>
-            <Preloader />
+            {isPreloadReady? <SignIn /> : <Preloader/>}
         </AppContainer>
     )
 }
