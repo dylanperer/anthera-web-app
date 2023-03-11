@@ -117,7 +117,6 @@ export const SignUp = () => {
                 leftIcon={'password'}
                 placeholder={'password'}
                 type={'password'}
-                label={'Forgot?'}
             />
             <InputField
                 onValue={(value) => console.log('>>', value)}
