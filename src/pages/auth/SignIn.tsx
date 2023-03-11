@@ -13,7 +13,7 @@ const StyledSubHeader = styled.span`
 
     font-family: Inter;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     user-select: none;
     color: #93a0ae;
 `;
@@ -23,7 +23,7 @@ const StyledHeader = styled.span`
 
     font-family: Inter;
     font-weight: 700;
-    font-size: 28px;
+    font-size: 26px;
     user-select: none;
     color: #294661;
 `;
@@ -70,7 +70,7 @@ const Container = styled.div<{}>`
     align-items: center;
     gap: 24px;
     margin-top: 40px;
-    width: 324px;
+    width: 330px;
     animation: ${fadInAnim} .6s ease-in;
 `;
 
@@ -82,7 +82,7 @@ export const SignIn = () => {
             </StyledLogoContainer>
             <StyledHeaderContainer>
                 <StyledHeader>Sign in</StyledHeader>
-                <StyledSubHeader>{`Hello there! Let's get in back to it`}</StyledSubHeader>
+                <StyledSubHeader>{`Hello there! Let's get in back to it.`}</StyledSubHeader>
             </StyledHeaderContainer>
             <InputField
                 onValue={(value) => console.log('>>', value)}
@@ -97,7 +97,7 @@ export const SignIn = () => {
                 type={'password'}
                 label={'Forgot?'}
             />
-            <StyledRadioButton isActive={true} label={'Remember me'} />
+            <StyledRadioButton isActive={true} label={'Remember this device.'} />
             <Button label={'Sign in'} />
             <StyledThirdPartyLoginContainer>
                 <RenderIcon icon={'google'} />

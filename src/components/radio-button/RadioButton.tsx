@@ -29,7 +29,7 @@ const StyledRadioLabel = styled.div`
     font-family: Inter;
     font-weight: 400;
     color: #93a0ae;
-    font-size: 14px;
+    font-size: 12px;
     user-select: none;
 `;
 
