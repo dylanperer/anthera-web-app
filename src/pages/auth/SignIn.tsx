@@ -4,6 +4,8 @@ import styled, { keyframes } from 'styled-components';
 import { Button } from '../../components/Button';
 import { RadioButton } from '../../components/radio-button/RadioButton';
 import { IconVariant, RenderIcon } from '../../Icons/IconManager';
+import {SignInPath, SignUpPath} from "../../navigation";
+import { useNavigate } from "react-router-dom";
 
 const StyledLogoContainer = styled.div`
     margin-bottom: 36px;
@@ -75,6 +77,8 @@ const Container = styled.div<{}>`
 `;
 
 export const SignIn = () => {
+    const navigate = useNavigate();
+
     return (
         <Container>
             <StyledLogoContainer>
@@ -98,7 +102,7 @@ export const SignIn = () => {
                 label={'Forgot?'}
             />
             <StyledRadioButton isActive={true} label={'Remember this device.'} />
-            <Button label={'Sign in'} />
+            <Button label={'Sign in'} onClick={()=>navigate(SignUpPath)}/>
             <StyledThirdPartyLoginContainer>
                 <RenderIcon icon={'google'} />
                 <RenderIcon icon={'facebook'} />

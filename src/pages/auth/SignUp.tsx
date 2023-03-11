@@ -4,6 +4,8 @@ import styled, { keyframes } from 'styled-components';
 import { Button } from '../../components/Button';
 import { RadioButton } from '../../components/radio-button/RadioButton';
 import { IconVariant, RenderIcon } from '../../Icons/IconManager';
+import { useNavigate } from 'react-router';
+import { SignInPath, SignUpPath } from '../../navigation';
 
 const StyledLogoContainer = styled.div`
     margin-bottom: 36px;
@@ -81,10 +83,12 @@ const Container = styled.div<{}>`
     gap: 24px;
     margin-top: 40px;
     width: 330px;
-    animation: ${fadInAnim} .6s ease-in;
+    animation: ${fadInAnim} 0.6s ease-in;
 `;
 
 export const SignUp = () => {
+    const navigate = useNavigate();
+
     return (
         <Container>
             <StyledLogoContainer>
@@ -99,7 +103,9 @@ export const SignUp = () => {
                 <RenderIcon icon={'facebook'} />
                 <RenderIcon icon={'apple'} />
             </StyledThirdPartySignUpContainer>
-            <StyledThirdPartySignUpContainerLabel>{'Or, register with email...'}</StyledThirdPartySignUpContainerLabel>
+            <StyledThirdPartySignUpContainerLabel>
+                {'Or, register with email...'}
+            </StyledThirdPartySignUpContainerLabel>
             <InputField
                 onValue={(value) => console.log('>>', value)}
                 leftIcon={'email'}
@@ -119,7 +125,11 @@ export const SignUp = () => {
                 placeholder={'confirm password'}
                 type={'password'}
             />
-            <StyledRadioButton isActive={false} label={'I have read and accept the Terms of Service.'} />
+            <StyledRadioButton
+                onClick={() => navigate(SignInPath)}
+                isActive={false}
+                label={'I have read and accept the Terms of Service.'}
+            />
             <Button label={'Create account'} />
         </Container>
     );
