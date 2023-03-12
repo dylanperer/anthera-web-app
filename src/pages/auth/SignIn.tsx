@@ -67,7 +67,7 @@ const Container = styled(motion.div)`
 export const SignIn = () => {
     const { appNavigate, toAnimateOnMount } = useAppContext();
 
-    console.log('>>',toAnimateOnMount(SignInPath));
+    toAnimateOnMount(SignInPath);
 
     return (
         <Container
