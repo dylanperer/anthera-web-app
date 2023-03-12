@@ -8,6 +8,7 @@ import { Discover } from './pages/app/Discover';
 import { DiscoverPath, SignInPath, SignUpPath } from './navigation';
 import { appConfig } from './env/enviroment';
 import AppMiscProvider from './contexts/AppMiscContext';
+import { HubConnectionBuilder, LogLevel } from '@microsoft/signalr';
 
 const AppContainer = styled.div`
     display: flex;
@@ -18,35 +19,43 @@ const AppContainer = styled.div`
 
 function App() {
     const [isPreloadReady, setIsPreloadReady] = React.useState<boolean>(false);
-    const onPreloadReady = () => {
-        setIsPreloadReady(true);
-    };
+
+
+    React.useEffect( () => {
+        const joinRoom = async (user: string, room: string) => {
+            try {
+                const connection = new HubConnectionBuilder()
+                    .withUrl('https://localhost:7248/chat')
+                    .configureLogging(LogLevel.Information)
+                    .build();
+
+                connection.on('ReceiveMessage', (user, message) =>
+                    console.log('message received: ', message)
+                );
+
+                await connection.start();
+                await connection.invoke("JoinRoom", {user, room});
+            } catch (e) {
+                console.log(e);
+            }
+        };
+
+        joinRoom('u1', 'r1');
+        setTimeout(()=>setIsPreloadReady(true), appConfig.PRELOADER_WAIT_TIME);
+    }, []);
 
     return (
         <AppContainer className="App">
             <AppMiscProvider>
-            <head>
-                <link
-                    href="https://fonts.cdnfonts.com/css/inter"
-                    rel="stylesheet"
-                    onLoad={() =>
-                        setTimeout(
-                            onPreloadReady,
-                            appConfig.PRELOADER_WAIT_TIME
-                        )
-                    }
-                />
-                <title>anthera</title>
-            </head>
-            {isPreloadReady ? (
-                <Routes>
-                    <Route path={DiscoverPath} element={<Discover />} />
-                    <Route path={SignInPath} element={<SignIn />} />
-                    <Route path={SignUpPath} element={<SignUp />} />
-                </Routes>
-            ) : (
-                <Preloader />
-            )}
+                {isPreloadReady ? (
+                    <Routes>
+                        <Route path={DiscoverPath} element={<Discover />} />
+                        <Route path={SignInPath} element={<SignIn />} />
+                        <Route path={SignUpPath} element={<SignUp />} />
+                    </Routes>
+                ) : (
+                    <Preloader />
+                )}
             </AppMiscProvider>
         </AppContainer>
     );
