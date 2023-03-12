@@ -4,8 +4,9 @@ import styled, { keyframes } from 'styled-components';
 import { Button } from '../../components/Button';
 import { RadioButton } from '../../components/radio-button/RadioButton';
 import { IconVariant, RenderIcon } from '../../Icons/IconManager';
-import {SignInPath, SignUpPath} from "../../navigation";
-import { useNavigate } from "react-router-dom";
+import {SignUpPath} from "../../navigation";
+import {useLocation, useNavigate } from "react-router-dom";
+import { AnimatePresence, motion } from 'framer-motion';
 
 const StyledLogoContainer = styled.div`
     margin-bottom: 36px;
@@ -53,19 +54,8 @@ const StyledThirdPartyLoginContainer = styled.div`
     margin-top: 30px;
 `;
 
-export const fadInAnim = keyframes`
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: .5;
-  }
-  100% {
-    opacity: 1;
-  }
-`;
 
-const Container = styled.div<{}>`
+const Container = styled(motion.div)`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -73,14 +63,14 @@ const Container = styled.div<{}>`
     gap: 24px;
     margin-top: 40px;
     width: 330px;
-    animation: ${fadInAnim} .6s ease-in;
 `;
 
 export const SignIn = () => {
+    const location = useLocation();
     const navigate = useNavigate();
 
     return (
-        <Container>
+        <Container initial={{opacity: 0}} animate={{ opacity: 1}} transition={{duration: .2, ease: 'easeIn'}} key={location.pathname}>
             <StyledLogoContainer>
                 <RenderIcon variant={IconVariant.V1} icon={'logo'} />
             </StyledLogoContainer>

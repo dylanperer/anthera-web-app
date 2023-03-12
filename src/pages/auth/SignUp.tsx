@@ -63,18 +63,6 @@ const StyledThirdPartySignUpContainerLabel = styled.div`
     user-select: none;
 `;
 
-export const fadInAnim = keyframes`
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: .5;
-  }
-  100% {
-    opacity: 1;
-  }
-`;
-
 const Container = styled.div<{}>`
     display: flex;
     flex-direction: column;
@@ -83,7 +71,6 @@ const Container = styled.div<{}>`
     gap: 24px;
     margin-top: 40px;
     width: 330px;
-    animation: ${fadInAnim} 0.6s ease-in;
 `;
 
 export const SignUp = () => {
