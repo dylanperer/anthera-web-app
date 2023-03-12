@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 
 const StyledButton = styled.div`
-    padding: 14px 97px;
+    padding: 14px 0px;
 
     font-family: Inter;
     font-weight: 700;
     color: #fff;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
     user-select: none;
 `;
@@ -39,8 +39,8 @@ export interface IButton {
 
 export const Button = ({ label = '', onClick = () => undefined }: IButton) => {
     return (
-        <Container>
-            <StyledButton onClick={onClick}>{label}</StyledButton>
+        <Container onClick={onClick}>
+            <StyledButton>{label}</StyledButton>
         </Container>
     );
 };

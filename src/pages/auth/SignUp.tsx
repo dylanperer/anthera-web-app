@@ -69,8 +69,8 @@ const Container = styled.div<{}>`
     justify-content: center;
     align-items: center;
     gap: 24px;
-    margin-top: 40px;
     width: 330px;
+    margin: 40px 40px;
 `;
 
 export const SignUp = () => {

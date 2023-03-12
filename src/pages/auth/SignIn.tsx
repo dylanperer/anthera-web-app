@@ -7,6 +7,7 @@ import { IconVariant, RenderIcon } from '../../Icons/IconManager';
 import { SignUpPath } from '../../navigation';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AnimatePresence, motion, useInView } from 'framer-motion';
+import {useAppMiscContext} from "../../contexts/AppMiscContext";
 const StyledLogoContainer = styled.div`
     margin-bottom: 36px;
 `;
@@ -59,20 +60,18 @@ const Container = styled(motion.div)`
     justify-content: center;
     align-items: center;
     gap: 24px;
-    margin-top: 40px;
+    margin: 40px 40px;
     width: 330px;
 `;
 
 export const SignIn = () => {
-    const location = useLocation();
-    const navigate = useNavigate();
+    const { appNavigate } = useAppMiscContext();
 
     return (
         <Container
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.2, ease: 'easeIn' }}
-            key={location.pathname}
         >
             <StyledLogoContainer>
                 <RenderIcon variant={IconVariant.V1} icon={'logo'} />
@@ -98,7 +97,7 @@ export const SignIn = () => {
                 isActive={true}
                 label={'Remember this device.'}
             />
-            <Button label={'Sign in'} onClick={() => navigate(SignUpPath)} />
+            <Button label={'Sign in'} onClick={() => appNavigate(SignUpPath)} />
             <StyledThirdPartyLoginContainer>
                 <RenderIcon icon={'google'} />
                 <RenderIcon icon={'facebook'} />

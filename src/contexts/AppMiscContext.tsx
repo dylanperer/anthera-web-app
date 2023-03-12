@@ -1,16 +1,14 @@
-
 import React, { createContext, useContext, useState } from 'react';
+import { useNavigate } from 'react-router';
 
 interface IAppMiscContext {
-    count: number;
-    increment: () => void;
-    decrement: () => void;
+    appNavigate: (url: string) => void;
+    animateOnNavBackwards: (url: string) => boolean
 }
 
 const AppMiscContext = createContext<IAppMiscContext>({
-    count: 0,
-    increment: () => {},
-    decrement: () => {},
+    appNavigate: () => undefined,
+    animateOnNavBackwards: () => false,
 });
 
 export const useAppMiscContext = () => useContext(AppMiscContext);
@@ -20,27 +18,25 @@ interface IAppMiscProvider {
 }
 
 const AppMiscProvider: React.FC<IAppMiscProvider> = ({ children }) => {
-    const [count, setCount] = useState(0);
+    const historyStack = React.useRef<Array<string>>([]);
+    const navigate = useNavigate();
 
-    const increment = () => {
-        setCount(count + 1);
+    const appNavigate = (url: string) => {
+        historyStack.current = [...historyStack.current, url];
+        navigate(url);
+        console.log(historyStack);
     };
 
-    const decrement = () => {
-        setCount(count - 1);
+    const animateOnNavBackwards =  (url: string)=>{
+        const find = historyStack.current.find(c=> c === url);
+        return !!find
     };
 
-    const value: IAppMiscContext = {
-        count,
-        increment,
-        decrement,
-    };
-
-    return <AppMiscContext.Provider value={value}>{children}</AppMiscContext.Provider>;
+    return (
+        <AppMiscContext.Provider value={{ appNavigate, animateOnNavBackwards }}>
+            {children}
+        </AppMiscContext.Provider>
+    );
 };
 
 export default AppMiscProvider;
-
-
-
-

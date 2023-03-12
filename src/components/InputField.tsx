@@ -51,8 +51,6 @@ const Input = styled.input<{
     font-size: 15px;
     cursor: pointer;
     user-select: none;
-
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 `;
 
 const Container = styled.div<{
