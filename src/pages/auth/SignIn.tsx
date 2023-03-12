@@ -4,10 +4,9 @@ import styled, { keyframes } from 'styled-components';
 import { Button } from '../../components/Button';
 import { RadioButton } from '../../components/radio-button/RadioButton';
 import { IconVariant, RenderIcon } from '../../Icons/IconManager';
-import {SignUpPath} from "../../navigation";
-import {useLocation, useNavigate } from "react-router-dom";
-import { AnimatePresence, motion } from 'framer-motion';
-
+import { SignUpPath } from '../../navigation';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { AnimatePresence, motion, useInView } from 'framer-motion';
 const StyledLogoContainer = styled.div`
     margin-bottom: 36px;
 `;
@@ -54,7 +53,6 @@ const StyledThirdPartyLoginContainer = styled.div`
     margin-top: 30px;
 `;
 
-
 const Container = styled(motion.div)`
     display: flex;
     flex-direction: column;
@@ -70,7 +68,12 @@ export const SignIn = () => {
     const navigate = useNavigate();
 
     return (
-        <Container initial={{opacity: 0}} animate={{ opacity: 1}} transition={{duration: .2, ease: 'easeIn'}} key={location.pathname}>
+        <Container
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.2, ease: 'easeIn' }}
+            key={location.pathname}
+        >
             <StyledLogoContainer>
                 <RenderIcon variant={IconVariant.V1} icon={'logo'} />
             </StyledLogoContainer>
@@ -91,8 +94,11 @@ export const SignIn = () => {
                 type={'password'}
                 label={'Forgot?'}
             />
-            <StyledRadioButton isActive={true} label={'Remember this device.'} />
-            <Button label={'Sign in'} onClick={()=>navigate(SignUpPath)}/>
+            <StyledRadioButton
+                isActive={true}
+                label={'Remember this device.'}
+            />
+            <Button label={'Sign in'} onClick={() => navigate(SignUpPath)} />
             <StyledThirdPartyLoginContainer>
                 <RenderIcon icon={'google'} />
                 <RenderIcon icon={'facebook'} />
