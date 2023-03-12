@@ -4,8 +4,9 @@ import styled, { keyframes } from 'styled-components';
 import { Button } from '../../components/Button';
 import { RadioButton } from '../../components/radio-button/RadioButton';
 import { IconVariant, RenderIcon } from '../../Icons/IconManager';
-import { useNavigate } from 'react-router';
 import { SignInPath, SignUpPath } from '../../navigation';
+import { useAppContext } from '../../contexts/AppContext';
+import {motion} from "framer-motion";
 
 const StyledLogoContainer = styled.div`
     margin-bottom: 36px;
@@ -63,7 +64,7 @@ const StyledThirdPartySignUpContainerLabel = styled.div`
     user-select: none;
 `;
 
-const Container = styled.div<{}>`
+const Container = styled(motion.div)`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -74,10 +75,16 @@ const Container = styled.div<{}>`
 `;
 
 export const SignUp = () => {
-    const navigate = useNavigate();
+    const { appNavigate, toAnimateOnMount } = useAppContext();
+
+    toAnimateOnMount(SignUpPath);
 
     return (
-        <Container>
+        <Container
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.2, ease: 'easeIn' }}
+        >
             <StyledLogoContainer>
                 <RenderIcon variant={IconVariant.V1} icon={'logo'} />
             </StyledLogoContainer>
@@ -112,11 +119,13 @@ export const SignUp = () => {
                 type={'password'}
             />
             <StyledRadioButton
-                onClick={() => navigate(SignInPath)}
                 isActive={false}
                 label={'I have read and accept the Terms of Service.'}
             />
-            <Button label={'Create account'} />
+            <Button
+                label={'Create account'}
+                onClick={() => appNavigate(SignInPath)}
+            />
         </Container>
     );
 };

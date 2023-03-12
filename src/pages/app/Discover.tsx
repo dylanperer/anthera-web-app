@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
-import {useAppMiscContext} from "../../contexts/AppMiscContext";
+import {useAppContext} from "../../contexts/AppContext";
+import {SignInPath} from "../../navigation";
 
 export const Discover = () => {
-    const { appNavigate } = useAppMiscContext();
+    const { appNavigate } = useAppContext();
     return (
         <div>
-            <button onClick={() => appNavigate('auth/sign-in')}>Sign in</button>
+            <button onClick={() => appNavigate(SignInPath)}>Sign in</button>
         </div>
     );
 };

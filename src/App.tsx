@@ -7,7 +7,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Discover } from './pages/app/Discover';
 import { DiscoverPath, SignInPath, SignUpPath } from './navigation';
 import { appConfig } from './env/enviroment';
-import AppMiscProvider from './contexts/AppMiscContext';
+import AppProvider from './contexts/AppContext';
 import { HubConnectionBuilder, LogLevel } from '@microsoft/signalr';
 
 const AppContainer = styled.div`
@@ -46,7 +46,7 @@ function App() {
 
     return (
         <AppContainer className="App">
-            <AppMiscProvider>
+            <AppProvider>
                 {isPreloadReady ? (
                     <Routes>
                         <Route path={DiscoverPath} element={<Discover />} />
@@ -56,7 +56,7 @@ function App() {
                 ) : (
                     <Preloader />
                 )}
-            </AppMiscProvider>
+            </AppProvider>
         </AppContainer>
     );
 }

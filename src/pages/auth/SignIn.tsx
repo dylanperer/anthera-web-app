@@ -4,10 +4,10 @@ import styled, { keyframes } from 'styled-components';
 import { Button } from '../../components/Button';
 import { RadioButton } from '../../components/radio-button/RadioButton';
 import { IconVariant, RenderIcon } from '../../Icons/IconManager';
-import { SignUpPath } from '../../navigation';
+import {SignInPath, SignUpPath} from '../../navigation';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AnimatePresence, motion, useInView } from 'framer-motion';
-import {useAppMiscContext} from "../../contexts/AppMiscContext";
+import {useAppContext} from "../../contexts/AppContext";
 const StyledLogoContainer = styled.div`
     margin-bottom: 36px;
 `;
@@ -65,7 +65,9 @@ const Container = styled(motion.div)`
 `;
 
 export const SignIn = () => {
-    const { appNavigate } = useAppMiscContext();
+    const { appNavigate, toAnimateOnMount } = useAppContext();
+
+    console.log('>>',toAnimateOnMount(SignInPath));
 
     return (
         <Container
